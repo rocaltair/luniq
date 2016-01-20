@@ -55,7 +55,7 @@ static int lua__uniq_release(lua_State *L)
 	return 0;
 }
 
-static int lua__uniq_used(lua_State *L)
+static int lua__uniq_inuse(lua_State *L)
 {
 	struct handlemap * h = CHECK_UNIQ(L, 1);
 	handleid id = (handleid)luaL_checkinteger(L, 2);
@@ -114,7 +114,7 @@ static int opencls__luniq(lua_State *L)
 		{"new", lua__uniq_new_id},
 		{"release", lua__uniq_release},
 		{"list", lua__uniq_list},
-		{"used", lua__uniq_used},
+		{"inuse", lua__uniq_inuse},
 		{NULL, NULL},
 	};
 	luaL_newmetatable(L, CLS_UNIQ);

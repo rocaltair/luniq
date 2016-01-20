@@ -20,8 +20,8 @@ for i, id in pairs(h:list()) do
 	h:release(id);
 end
 
-print("in use 2=", h:used(2))
-print("in use 8=", h:used(8))
+print("in use 2=", h:inuse(2))
+print("in use 8=", h:inuse(8))
 
 for i=1, 5 do
 	local id = h:new()
