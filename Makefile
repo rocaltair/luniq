@@ -9,7 +9,7 @@ OBJS = luniq.o \
 	
 
 LLIBS = -llua -lpthread
-#CFLAGS = -c -O3 -Wall -fPIC -Werror=declaration-after-statement -std=c89 -pedantic
+#CFLAGS = -c -O3 -Wall -fPIC -Werror=declaration-after-statement -std=c89 -pedantic -Dinline=""
 CFLAGS = -c -O3 -Wall -fPIC
 LDFLAGS = -O3 -Wall --shared
 

@@ -30,7 +30,7 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 #include <stdlib.h>
 #include <string.h>
 
-// must be pow of 2
+/* must be pow of 2 */
 #define INIT_SLOTS 16
 
 struct handleslot {
@@ -99,7 +99,7 @@ handlemap_new(struct handlemap *m, void *ud) {
 	rwlock_wlock(&m->lock);
 	if (m->n >= m->cap * 3 / 4) {
 		if (expand_map(m) == NULL) {
-			// memory overflow
+			/* memory overflow */
 			rwlock_wunlock(&m->lock);
 			return 0;
 		}
@@ -109,7 +109,7 @@ handlemap_new(struct handlemap *m, void *ud) {
 		struct handleslot *slot;
 		handleid id = ++m->lastid;
 		if (id == 0) {
-			// 0 is reserved for invalid id
+			/* 0 is reserved for invalid id */
 			id = ++m->lastid;
 		}
 		slot = &m->slot[id & (m->cap - 1)];
